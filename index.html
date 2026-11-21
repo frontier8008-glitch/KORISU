@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="こりす｜札幌・手稲のパン移動販売">
+<meta property="og:description" content="手稲区曙の工場で焼き上げたパンを移動販売でお届けしています。月〜金 8:00〜14:00">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>パン工房こりす</title>
+<meta name="description" content="札幌市手稲区のパン屋「こりす」。調理パン・菓子パン・ドーナツ・デニッシュ。平日のみ営業、予約受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 紙袋(クラフト)の地 + 手稲の森の緑。縦に「看板 → 新作 → 品書き → 予約 → 道案内」 */
+:root{
+  --paper:#f7f2e8;
+  --kraft:#e9dcc3;
+  --ink:#2b2219;
+  --muted:#6f6253;
+  --crust:#9a5a24;
+  --forest:#2f5a3f;
+  --line:#d8c9ad;
+  --card:#fffdf8;
+  --off:#b3a692;
+  --display:"Kaisei Decol","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1d1914;--kraft:#2a241c;--ink:#efe6d6;--muted:#b4a68f;--crust:#e0a15f;--forest:#86b897;--line:#3d352a;--card:#25201a;--off:#7b705f;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#1d1914;--kraft:#2a241c;--ink:#efe6d6;--muted:#b4a68f;--crust:#e0a15f;--forest:#86b897;--line:#3d352a;--card:#25201a;--off:#7b705f;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8;}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.35;text-wrap:balance;margin:0}
+a{color:var(--forest)}
+:focus-visible{outline:2px solid var(--crust);outline-offset:2px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{width:38px;height:38px;flex:none;border-radius:50%;object-fit:cover;border:2px solid var(--forest)}
+.brand b{font-family:var(--display);font-size:1.35rem;letter-spacing:.06em}
+nav.links{display:flex;gap:4px;flex-wrap:wrap}
+nav.links a{color:var(--ink);text-decoration:none;font-size:.9rem;padding:4px 10px;border-radius:99px}
+nav.links a:hover{background:var(--kraft)}
+@media (max-width:640px){nav.links a:not(.cta){display:none}}
+nav.links a.cta{background:var(--forest);color:var(--paper);font-weight:700}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;gap:28px}}
+.eyebrow{font-size:.8rem;letter-spacing:.2em;color:var(--crust);font-weight:700}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-top:8px}
+.hero h1 span{display:block;font-size:.45em;color:var(--muted);font-weight:500;margin-top:10px;letter-spacing:.04em}
+.hero p.lead{max-width:34em;color:var(--muted);margin:18px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.facts li{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 14px;font-size:.88rem}
+.facts li strong{color:var(--forest)}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:50% 50% 46% 54%/55% 50% 50% 45%;background:var(--kraft) url(img/korisu.jpg) center 40%/cover no-repeat;overflow:hidden}
+.hero-art .stamp{position:absolute;right:8%;bottom:8%;width:42%;aspect-ratio:1;border-radius:50%;background:var(--forest);color:var(--paper);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:clamp(.9rem,2.4vw,1.15rem);line-height:1.4;transform:rotate(-8deg);box-shadow:0 6px 18px rgb(0 0 0/.18)}
+.hero-art .stamp small{display:block;font-family:var(--body);font-size:.7em;opacity:.85}
+
+section{padding-block:48px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.sec-head h2{font-size:clamp(1.6rem,3.6vw,2.1rem)}
+.sec-head p{margin:0;color:var(--muted);font-size:.92rem}
+
+/* new items */
+.new{background:var(--kraft)}
+.newgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.item{background:var(--card);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.ph{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;color:color-mix(in srgb,var(--ink) 55%,transparent);font-size:.78rem;letter-spacing:.1em;position:relative}
+.ph::before{content:"";position:absolute;width:46%;aspect-ratio:1.5;border-radius:50% 50% 44% 44%/62% 62% 38% 38%;background:var(--bun);box-shadow:inset 0 -8px 0 rgb(0 0 0/.08)}
+.ph span{position:relative;margin-top:62%}
+.item img.photo{display:block;width:100%;max-width:100%;aspect-ratio:4/3;object-fit:cover}
+.item .txt{padding:12px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.item h3{font-size:1.05rem}
+.item p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.65}
+.tag{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--crust);border:1px solid currentColor;border-radius:4px;padding:0 6px}
+
+/* menu */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 16px;border-radius:99px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.toggle{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);margin-bottom:12px}
+.menu-cat{margin-bottom:28px}
+.menu-cat h3{font-size:1.25rem;padding-bottom:6px;border-bottom:2px solid var(--ink);margin-bottom:4px;display:flex;justify-content:space-between;align-items:baseline}
+.menu-cat h3 small{font-family:var(--body);font-weight:400;font-size:.8rem;color:var(--muted)}
+.menu-list{list-style:none;margin:0;padding:0;columns:2;column-gap:40px}
+@media (max-width:640px){.menu-list{columns:1}}
+.menu-list li{break-inside:avoid;display:flex;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.menu-list .nm{min-width:0}
+.menu-list .nm small{display:block;font-size:.78rem;color:var(--muted);line-height:1.4}
+.menu-list .dots{flex:1;border-bottom:1px dotted var(--off);transform:translateY(-4px);min-width:12px}
+.menu-list .pr{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.menu-list .pr::after{content:"円";font-weight:400;font-size:.8em;margin-left:1px}
+.menu-list li.off{color:var(--off)}
+.menu-list li.off .pr{font-weight:400}
+.menu-list li.off .badge{font-size:.7rem;border:1px solid var(--off);border-radius:4px;padding:0 5px;white-space:nowrap}
+.note{font-size:.82rem;color:var(--muted)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.gal figure{margin:0;min-width:0}
+.gal img{display:block;width:100%;max-width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.gal figcaption{font-size:.88rem;margin-top:6px;display:flex;gap:8px;align-items:baseline}
+.gal figcaption small{font-size:.72rem;color:var(--off);border:1px solid var(--off);border-radius:4px;padding:0 5px}
+
+/* reserve */
+.reserve{background:var(--forest);color:var(--paper)}
+.reserve .sec-head p{color:color-mix(in srgb,var(--paper) 80%,transparent)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:760px){.rgrid{grid-template-columns:1fr}}
+.panel{background:var(--card);color:var(--ink);border-radius:16px;padding:22px;min-width:0}
+.steps{margin:0;padding-left:1.3em}
+.steps li{margin-bottom:8px}
+.contact{display:grid;gap:10px;margin-top:16px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;flex-wrap:wrap}
+.crow .k{font-size:.75rem;color:var(--muted);letter-spacing:.1em;display:block}
+.crow .v{font-weight:700;font-variant-numeric:tabular-nums;user-select:all;word-break:break-all}
+button.copy{font:inherit;font-size:.8rem;border:1px solid var(--forest);color:var(--forest);background:transparent;border-radius:99px;padding:3px 12px;cursor:pointer}
+form label{display:block;font-size:.85rem;font-weight:700;margin:12px 0 4px}
+form input,form select,form textarea{width:100%;font:inherit;font-size:1rem;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lines{display:grid;gap:8px}
+.line{display:grid;grid-template-columns:1fr 76px 36px;gap:6px}
+.line button{font:inherit;border:1px solid var(--line);background:var(--paper);color:var(--muted);border-radius:8px;cursor:pointer}
+.addline{margin-top:8px;font:inherit;font-size:.85rem;background:none;border:1px dashed var(--muted);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+.total{margin-top:10px;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.primary{margin-top:16px;width:100%;font:inherit;font-weight:700;background:var(--crust);color:#fff;border:0;border-radius:10px;padding:12px;cursor:pointer}
+.out{margin-top:14px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:.9rem}
+.err{color:#b3261e;font-size:.85rem;margin-top:8px}
+
+/* access */
+.agrid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.agrid{grid-template-columns:1fr}}
+dl.info{margin:0;display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
+dl.info dt,dl.info dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+dl.info dt{color:var(--muted);font-size:.88rem}
+dl.info dd{min-width:0}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.week div{border-radius:10px;padding:10px 0;font-weight:700;background:var(--forest);color:var(--paper)}
+.week div.cl{background:transparent;border:1px dashed var(--off);color:var(--off);font-weight:400}
+.week small{display:block;font-size:.7rem;font-weight:400}
+.mapbtn{display:inline-block;margin-top:14px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:99px;padding:8px 18px;font-size:.9rem}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="こりす トップへ">
+      <img src="img/korisu-icon.jpg" alt="">
+      <b>こりす</b>
+    </a>
+    <nav class="links" aria-label="ページ内メニュー">
+      <a href="#new">新作</a><a href="#menu">メニュー</a><a href="#access">販売について</a><a class="cta" href="#reserve">予約する</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">札幌・手稲のパン移動販売</div>
+        <h1>まいにち焼きたて、<br>こりすのパン。<span>調理パン・菓子パン・ドーナツ・デニッシュ</span></h1>
+        <p class="lead">カツサンドやカレーパンなどのおかずパンから、あんパン、だるまパン、シナモンロールまで。ひとつずつ手で包んで焼いたパンを、移動販売でお届けしています。まとめ買いやお取り置きはご予約がおすすめです。</p>
+        <ul class="facts">
+          <li><strong>形態</strong> 移動販売</li>
+          <li><strong>販売</strong> 月〜金 8:00〜14:00</li>
+          <li><strong>定休</strong> 土・日・祝</li>
+          <li><strong>予約</strong> 電話・メール</li>
+        </ul>
+      </div>
+      <div class="hero-art" role="img" aria-label="バゲットを抱えたリス、こりすの看板キャラクター">
+        <div class="stamp"><div>11/24〜<br>秋の新作<br>4品<small>登場</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="new" id="new">
+    <div class="wrap">
+      <div class="sec-head"><h2>新作・おすすめ</h2><p>季節やその日の仕入れで変わります</p></div>
+      <div class="newgrid" id="newgrid"></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head"><h2>メニュー</h2><p>価格はすべて税込です</p></div>
+      <div class="tabs" role="group" aria-label="カテゴリ" id="tabs"></div>
+      <label class="toggle"><input type="checkbox" id="showOff"> お休み中の商品も表示する</label>
+      <div id="menuBody"></div>
+      <p class="note">「お休み中」の商品は、季節や仕入れの都合で一時的に販売していません。再開時はこのページでお知らせします。</p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head"><h2>ギャラリー</h2><p>これまでに焼いたパンたち</p></div>
+      <div class="gal">
+        <figure><img src="img/tomato-pizza.jpg" alt="トマトピザ" loading="lazy"><figcaption>トマトピザ<small>お休み中</small></figcaption></figure>
+        <figure><img src="img/kurumi-raisin.jpg" alt="胡桃レーズンパンの仕込み。生地一面にレーズンと胡桃" loading="lazy"><figcaption>胡桃レーズンパン（仕込み中）</figcaption></figure>
+        <figure><img src="img/ichigo-danish.jpg" alt="いちごデニッシュ。カスタードの上にいちご、粉糖" loading="lazy"><figcaption>いちごデニッシュ</figcaption></figure>
+        <figure><img src="img/broccoli-bacon.jpg" alt="ブロッコリーとベーコンを包んだ細長いパン" loading="lazy"><figcaption>ブロッコリーとベーコン<small>お休み中</small></figcaption></figure>
+        <figure><img src="img/asparagus-bacon.jpg" alt="アスパラとベーコンを生地で巻いてチーズをのせたパン" loading="lazy"><figcaption>アスパラベーコン<small>お休み中</small></figcaption></figure>
+        <figure><img src="img/mikan-danish.jpg" alt="カスタードの上にみかんを並べた四角いデニッシュ" loading="lazy"><figcaption>みかんデニッシュ<small>お休み中</small></figcaption></figure>
+        <figure><img src="img/chikuwa.jpg" alt="大葉とツナを詰めたちくわを包んだパン" loading="lazy"><figcaption>大葉とツナのちくわパン<small>お休み中</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserve" id="reserve">
+    <div class="wrap">
+      <div class="sec-head"><h2>ご予約・お取り置き</h2><p>平日のお受け取り分を承ります</p></div>
+      <div class="rgrid">
+        <div class="panel">
+          <h3 style="font-size:1.2rem">ご予約の流れ</h3>
+          <ol class="steps" style="margin-top:12px">
+            <li>右のフォームで、受け取り日と商品を選びます。</li>
+            <li>「予約メッセージを作る」を押して、できた文面をコピーします。</li>
+            <li>下のメールアドレスに送るか、お電話でお伝えください。</li>
+            <li>こちらから確認のご連絡をして、予約完了です。</li>
+          </ol>
+          <div class="contact">
+            <div class="crow"><div><span class="k">電話（直通）</span><span class="v" id="tel">090-8270-8007</span></div><button class="copy" type="button" data-copy="tel">コピー</button></div>
+            <div class="crow"><div><span class="k">メール</span><span class="v" id="mail">frontier8008@gmail.com</span></div><button class="copy" type="button" data-copy="mail">コピー</button></div>
+          </div>
+        </div>
+        <form class="panel" id="rform" novalidate>
+          <div class="two">
+            <div><label for="rname">お名前</label><input id="rname" autocomplete="name" placeholder="例）手稲 花子"></div>
+            <div><label for="rtel">電話番号</label><input id="rtel" type="tel" autocomplete="tel" placeholder="例）090-0000-0000"></div>
+          </div>
+          <label for="rdate">受け取り日（平日）</label>
+          <input id="rdate" type="date">
+          <label>商品と個数</label>
+          <div class="lines" id="lines"></div>
+          <button type="button" class="addline" id="addline">＋ 商品を追加</button>
+          <div class="total" id="total"></div>
+          <label for="rplace">受け取り場所（ご希望）</label>
+          <input id="rplace" placeholder="例）手稲区前田、○○会社前 など">
+          <label for="rtime">受け取り時間</label>
+          <select id="rtime"><option value="">指定なし</option><option>8:00〜9:00</option><option>9:00〜10:00</option><option>10:00〜11:00</option><option>11:00〜12:00</option><option>12:00〜13:00</option><option>13:00〜14:00</option></select>
+          <label for="rnote">ご要望</label>
+          <textarea id="rnote" rows="2" placeholder="その他ご要望があればどうぞ"></textarea>
+          <button class="primary" type="submit">予約メッセージを作る</button>
+          <div class="err" id="rerr" hidden></div>
+          <div id="outWrap" hidden>
+            <div class="out" id="out"></div>
+            <button class="copy" type="button" id="copyOut" style="margin-top:8px">文面をコピー</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="access">
+    <div class="wrap">
+      <div class="sec-head"><h2>販売について</h2><p>手稲区曙の工場で焼き上げ、移動販売でお届けしています（店頭販売はありません）</p></div>
+      <div class="agrid">
+        <dl class="info">
+          <dt>屋号</dt><dd>こりす</dd>
+          <dt>販売形態</dt><dd>移動販売</dd>
+          <dt>工場所在地</dt><dd>〒006-0839<br>北海道札幌市手稲区曙9条1丁目2-7</dd>
+          <dt>電話</dt><dd>090-8270-8007</dd>
+          <dt>メール</dt><dd style="word-break:break-all">frontier8008@gmail.com</dd>
+          <dt>販売時間</dt><dd>8:00〜14:00（月〜金）</dd>
+          <dt>定休日</dt><dd>土・日・祝日</dd>
+          <dt>開拓者</dt><dd>古田 幸平</dd>
+        </dl>
+        <div>
+          <h3 style="font-size:1.1rem;margin-bottom:10px">販売日 <small style="font-family:var(--body);font-weight:400;font-size:.85rem;color:var(--muted)">8:00〜14:00</small></h3>
+          <div class="week">
+            <div>月</div><div>火</div><div>水</div><div>木</div><div>金</div>
+            <div class="cl">土<small>休</small></div><div class="cl">日<small>休</small></div>
+          </div>
+          <p class="note" style="margin-top:10px">祝日はお休みです。販売場所やお届け先は、お電話・メールでお問い合わせください。</p>
+          <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%89%8B%E7%A8%B2%E5%8C%BA%E6%9B%99%E4%B9%9D%E6%9D%A11%E4%B8%81%E7%9B%AE2-7" target="_blank" rel="noopener">Googleマップで見る</a>
+          <a class="mapbtn" href="https://maps.apple.com/?q=%E3%81%93%E3%82%8A%E3%81%99&address=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%89%8B%E7%A8%B2%E5%8C%BA%E6%9B%99%E4%B9%9D%E6%9D%A11%E4%B8%81%E7%9B%AE2-7" target="_blank" rel="noopener">Appleマップで見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© こりす　札幌市手稲区のパン移動販売</span><span>月〜金 8:00〜14:00（土日祝休み）</span></div></footer>
+
+<script>
+const NEW=[
+ {n:"きのこグラタン",d:"こんがり焼いたパンの器に、きのこたっぷりのグラタンとチーズをのせました。350円",t:"新作",c:"#b08a5a",img:"img/kinoko-gratin.jpg"},
+ {n:"りんごデニッシュ",d:"カスタードの上にスライスしたりんごをたっぷり並べ、アプリコットジャムをのせて焼きました。380円",t:"おすすめ",c:"#d8953a",img:"img/ringo-danish.jpg"},
+ {n:"かぼちゃプリン",d:"かぼちゃプリンをふんわりしたパン生地で包み、粉糖をふって仕上げました。350円",t:"新作",c:"#e8a93a",img:"img/kabocha-pudding.jpg"},
+ {n:"かぼちゃのチーズテリーヌ",d:"かぼちゃを練り込んだ黄色いパン生地で、チーズテリーヌを包みました。350円",t:"新作",c:"#d99a4e",img:"img/kabocha-terrine.jpg"},
+ {n:"瀬戸内レモンと粒あんのあんぱん",d:"瀬戸内レモンと粒あんを生地に織り込んで焼き上げました。380円",t:"新作",c:"#9a5a6a",img:"img/lemon-anpan.jpg"},
+ {n:"栗あんぱん",d:"つぶあんと栗を生地に巻き込んで焼き上げました。380円",t:"秋のおすすめ",c:"#8a4f3a",img:"img/kuri-anpan.jpg"},
+ {n:"ごぼうベーコン",d:"ごぼうを丸ごと一本、ベーコンと生地で巻いてチーズをのせて焼きました。330円",t:"おすすめ",c:"#c9955a",img:"img/gobo-bacon.jpg"},
+ {n:"きのこピザ",d:"きのこをたっぷりのせ、チーズと黒こしょうで焼き上げたピザパン。350円",t:"おかずパン",c:"#a27a4f",img:"img/kinoko-pizza.jpg"},
+ {n:"ごぼうサラダ",d:"シャキシャキのごぼうサラダをはさみました。330円",t:"おかずパン",c:"#8c6a3f"},
+ {n:"オニオンベーコン",d:"玉ねぎとベーコンの組み合わせ。300円",t:"おかずパン",c:"#c9955a"},
+ {n:"ビーフシチュー",d:"パンの器にビーフシチューと玉ねぎ、チーズをのせて焼きました。380円",t:"11/24〜 秋の新作",c:"#6e3b25",img:"img/beef-stew.jpg"},
+ {n:"シャキシャキポテトとベーコンのピザ",d:"薄切りのポテトとベーコンに、チーズと黒こしょう。350円",t:"11/24〜 秋の新作",c:"#d8b060",img:"img/potato-bacon-pizza.jpg"},
+ {n:"ポテトサラダ",d:"コッペパンにレタスを敷いて、ハム入りのポテトサラダをたっぷりはさみました。330円",t:"11/24〜 秋の新作",c:"#c9b070",img:"img/potato-salad.jpg"},
+ {n:"シナモンジャムとリンゴのクリームパン",d:"クリームの上にリンゴとシナモンジャムをのせて焼きました。380円",t:"11/24〜 秋の新作",c:"#c98a45",img:"img/cinnamon-apple-cream.jpg"},
+ {n:"レーズンパン",d:"大粒のレーズンをたっぷり入れました。1本焼き上げて4分の1にカットして販売。380円",t:"おすすめ",c:"#9a6a45",img:"img/raisin.jpg"}
+];
+// p:null = 価格未掲載, off:true = お休み中
+const MENU={
+ "調理パン":[
+  ["チキンカツ",330],["チーズハンバーガー",350],["カツサンド",420],["ビーフシチュー",380,0,"秋の新作、11/24から販売"],["海老マヨ",350],["カレーパン",350],["ごぼうベーコン",330],["ごぼうサラダ",330],["BIGフランク",350],["タルタルフランク",250],["ごまフランク",250],["玉子パン",350],["オニオンベーコン",300],["焼きそばパン",330],["きのこグラタン",350,0,"新作"],["きのこピザ",350],["シャキシャキポテトとベーコンのピザ",350,0,"秋の新作、11/24から販売"],["チーズピザ",350],["塩パン",250,0,"2個入り"],["サラダチキン",300],["ポテトサラダ",330,0,"秋の新作、11/24から販売"],
+  ["トマトピザ",350,1],["かぼちゃのピザ",350,1],["ブリカツサンド",420,1],["海老カツ",380,1],["エビチリドック",380,1],["クリームコロッケ",330,1],["アスパラベーコン",300,1],["ブロッコリーとベーコン",350,1],["茄子ベーコン",350,1]
+ ],
+ "菓子パン":[
+  ["かぼちゃプリン",350,0,"新作"],["かぼちゃのチーズテリーヌ",350,0,"新作"],["レーズンパン",380,0,"1本の4分の1カット"],["シナモンジャムとリンゴのクリームパン",380,0,"秋の新作、11/24から販売"],["チョコだるま",330],["クリームだるま",330],["瀬戸内レモンと粒あんのあんぱん",380,0,"新作"],["栗あんぱん",380],["粒あんパン",280],["ごまあんパン",280],["こしあんぱん",280],["あんバターサンド",350,1],["チョコバナナ",330,1],["カスタードバナナ",330,1],["抹茶クリームと粒あん",null,1],["三色豆パン",null,1]
+ ],
+ "ドーナツ":[
+  ["つぶあんドーナツ",280],["ごまあんドーナツ",280],["こしあんドーナツ",280],["クリームドーナツ",330],["ツイストドーナツ",280,0,"2個入り"],["ケーキドーナツ",280],["桜あんドーナツ",280,1]
+ ],
+ "デニッシュ・ロール":[
+  ["りんごデニッシュ",380,0,"カスタード＋アプリコットジャム"],["オレンジピールみかん",380,1],["洋梨",350],["ブルーベリー",350,1],["クロワッサン",250],["メロンパン",280],["胡桃メロンパン",280],["ホーン",300,0,"チョコ／カスタード／豆乳"],["シナモンロール",280],["メイプルロール",250],["チョコロール",250]
+ ]
+};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+$("#newgrid").innerHTML=NEW.map(x=>`<article class="item">${x.img?`<img class="photo" src="${x.img}" alt="${esc(x.n)}" loading="lazy">`:`<div class="ph" style="--bun:${x.c};background:color-mix(in srgb,${x.c} 18%,var(--card))"><span>PHOTO</span></div>`}<div class="txt"><span class="tag">${x.t}</span><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div></article>`).join("");
+
+let cat="すべて";
+const cats=["すべて",...Object.keys(MENU)];
+function renderTabs(){$("#tabs").innerHTML=cats.map(c=>`<button type="button" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("")}
+function renderMenu(){
+  const showOff=$("#showOff").checked;
+  $("#menuBody").innerHTML=Object.entries(MENU).filter(([k])=>cat==="すべて"||k===cat).map(([k,items])=>{
+    const avail=items.filter(i=>!i[2]).length;
+    const rows=items.filter(i=>showOff||!i[2]).map(([n,p,off,sub])=>`<li class="${off?'off':''}"><span class="nm">${esc(n)}${sub?`<small>${esc(sub)}</small>`:""}</span><span class="dots"></span>${off?'<span class="badge">お休み中</span>':p==null?'<span class="badge">価格はお問い合わせ</span>':`<span class="pr">${p}</span>`}</li>`).join("");
+    return `<div class="menu-cat"><h3>${k}<small>販売中 ${avail}品</small></h3><ul class="menu-list">${rows}</ul></div>`;
+  }).join("");
+}
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;renderTabs();renderMenu()});
+$("#showOff").addEventListener("change",renderMenu);
+renderTabs();renderMenu();
+
+// reservation
+const avail=Object.values(MENU).flat().filter(i=>!i[2]&&i[1]);
+const opts=avail.map(([n,p])=>`<option value="${esc(n)}" data-p="${p}">${esc(n)}（${p}円）</option>`).join("");
+let lineId=0;
+function addLine(name,qty){
+  const id=++lineId;const d=document.createElement("div");d.className="line";
+  d.innerHTML=`<select id="item${id}" aria-label="商品"><option value="">商品を選ぶ</option>${opts}</select><input id="qty${id}" type="number" min="1" max="99" value="${qty||1}" aria-label="個数"><button type="button" aria-label="この行を削除">×</button>`;
+  if(name)d.querySelector("select").value=name;
+  d.querySelector("button").onclick=()=>{d.remove();calc()};
+  d.addEventListener("input",calc);$("#lines").appendChild(d);calc();
+}
+function lines(){return[...document.querySelectorAll(".line")].map(l=>{const s=l.querySelector("select");const o=s.selectedOptions[0];return{n:s.value,p:+(o&&o.dataset.p||0),q:Math.max(1,+l.querySelector("input").value||1)}}).filter(x=>x.n)}
+function calc(){const L=lines();const t=L.reduce((a,x)=>a+x.p*x.q,0);const c=L.reduce((a,x)=>a+x.q,0);$("#total").textContent=L.length?`合計 ${c}個　${t.toLocaleString()}円（目安）`:"";}
+$("#addline").onclick=()=>addLine();
+addLine("カツサンド",2);addLine("シナモンロール",3);
+
+// 次の平日を既定に
+(function(){const d=new Date();do{d.setDate(d.getDate()+1)}while(d.getDay()===0||d.getDay()===6);$("#rdate").value=d.toISOString().slice(0,10);$("#rdate").min=new Date().toISOString().slice(0,10)})();
+
+$("#rform").addEventListener("submit",e=>{
+  e.preventDefault();const err=$("#rerr");err.hidden=true;
+  const name=$("#rname").value.trim(),tel=$("#rtel").value.trim(),date=$("#rdate").value,L=lines();
+  const msg=[];
+  if(!name)msg.push("お名前を入力してください。");
+  if(!tel)msg.push("折り返し用の電話番号を入力してください。");
+  if(!date)msg.push("受け取り日を選んでください。");
+  else{const w=new Date(date+"T00:00").getDay();if(w===0||w===6)msg.push("土日はお休みです。平日の日付を選んでください。");}
+  if(!L.length)msg.push("商品を1つ以上選んでください。");
+  if(msg.length){err.textContent=msg.join(" ");err.hidden=false;$("#outWrap").hidden=true;return}
+  const wd="日月火水木金土"[new Date(date+"T00:00").getDay()];
+  const t=L.reduce((a,x)=>a+x.p*x.q,0);
+  $("#out").textContent=`【こりす 予約のお願い】\nお名前：${name}\n電話：${tel}\n受け取り日：${date.replace(/-/g,"/")}（${wd}）${$("#rtime").value?" "+$("#rtime").value:""}\n${$("#rplace").value.trim()?`受け取り場所：${$("#rplace").value.trim()}\n`:""}\n${L.map(x=>`・${x.n} × ${x.q}`).join("\n")}\n\n合計目安：${t.toLocaleString()}円${$("#rnote").value.trim()?`\nご要望：${$("#rnote").value.trim()}`:""}`;
+  $("#outWrap").hidden=false;
+});
+
+function copyText(text,btn){
+  const done=()=>{const o=btn.textContent;btn.textContent="コピーしました";setTimeout(()=>btn.textContent=o,1600)};
+  try{navigator.clipboard.writeText(text).then(done,()=>sel(btn))}catch(_){sel(btn)}
+}
+function sel(btn){const el=btn.id==="copyOut"?$("#out"):$("#"+btn.dataset.copy);const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="選択しました。長押しでコピー"}
+document.querySelectorAll("button[data-copy]").forEach(b=>b.onclick=()=>copyText($("#"+b.dataset.copy).textContent,b));
+$("#copyOut").onclick=e=>copyText($("#out").textContent,e.currentTarget);
+</script>
+
+</body>
+</html>
